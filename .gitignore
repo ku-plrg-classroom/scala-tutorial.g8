@@ -1,2 +1,10 @@
-target
-test-detail
+target/
+boot/
+lib_managed/
+src_managed/
+project/plugins/project/
+
+.metals
+.bloop
+.DS_Store
+.sw[op]
