@@ -6,7 +6,7 @@ trait Template {
 
   def concat(x: String, y: String): String
 
-  def addN(n: Int): Int => Int
+  def mulN(n: Int): Int => Int
 
   def twice(f: Int => Int): Int => Int
 
@@ -14,13 +14,17 @@ trait Template {
 
   def double(l: List[Int]): List[Int]
 
-  def sum(l: List[Int]): Int
+  def product(l: List[Int]): Int
 
-  def getKey(m: Map[String, Int], s: String): Int
+  def getOrNotFound(m: Map[String, Int], s: String): Int
 
   sealed trait Tree
-  case class Branch(left: Tree, value: Int, right: Tree) extends Tree
+  case class Branch(children: List[Tree]) extends Tree
   case class Leaf(value: Int) extends Tree
+
+  def depth(t: Tree): Int
+
+  def sum(t: Tree): Int
 
   def countLeaves(t: Tree): Int
 
